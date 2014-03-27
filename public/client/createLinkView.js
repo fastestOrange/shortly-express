@@ -1,7 +1,14 @@
 Shortly.createLinkView = Backbone.View.extend({
   className: 'creator',
 
-  template: Templates['create'],
+  template: Handlebars.compile([
+    '<form>',
+      '<input class="text" type="text" name="url">',
+      '<input type="submit" value="Shorten">',
+    '</form>',
+    '<img class="spinner" src="/spiffygif_46x46.gif">',
+    '<div class="message"></div>'
+  ].join('')),
 
   events: {
     'submit': 'shortenUrl'
